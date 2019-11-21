@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace BasicPart12_WindowFormApplication
 {
-    
+
     public partial class Barcode_Form : MetroFramework.Forms.MetroForm
     {
         public Barcode_Form()
@@ -24,7 +24,7 @@ namespace BasicPart12_WindowFormApplication
         }
         private void metroLabel1_Click_1(object sender, EventArgs e)
         {
-            
+
         }
         private void metroLabel1_Click_2(object sender, EventArgs e)
         {
@@ -49,17 +49,20 @@ namespace BasicPart12_WindowFormApplication
 
         private void btn_generate_Click_1(object sender, EventArgs e)
         {
+
             if (tb_fielddata.Text != "")
             {
                 Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
-                pb_qrcode.Image = qrcode.Draw(tb_fielddata.Text,0);
+                pb_qrcode.Image = qrcode.Draw(tb_fielddata.Text, 0);
 
                 btn_save.Visible = true;
 
+                tb_fielddata.Select();
+                tb_fielddata.Focus();
             }
             else
             {
-                MessageBox.Show("Value is Null.");
+                //MessageBox.Show("Value is Null.");
             }
 
         }
@@ -69,83 +72,70 @@ namespace BasicPart12_WindowFormApplication
 
             Clipboard.SetImage(pb_qrcode.Image);
 
-            //Image File;
-            //SaveFileDialog f = new SaveFileDialog();
-            //f.Filter = "Image files (*.jpg, *.png) | *.jpg; *.png";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JPEG Image|*.jpg|PNG Image (.png)|*.png|Bitmap Image|*.bmp|Gif Image|*.gif|Tiff Image (.tiff)|*.tiff|Wmf Image (.wmf)|*.wmf";
+            saveFileDialog1.Title = "Save as";
+            saveFileDialog1.ShowDialog();
 
-            //if (f.ShowDialog() == DialogResult.OK)
-            //{
-                //File = Image.FromFile(f.FileName);
-                //pb_qrcode.Image = File;
-                //pb_qrcode.Image.Save();
+            if (saveFileDialog1.FileName != "")
+            {
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
 
-                //pb_qrcode.Image.Save(specific_folder + "\\" + f.SafeFileName);
-
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Filter = "JPEG Image|*.jpg|PNG Image (.png)|*.png|Bitmap Image|*.bmp|Gif Image|*.gif|Tiff Image (.tiff)|*.tiff|Wmf Image (.wmf)|*.wmf";
-                saveFileDialog1.Title = "Save as";
-                saveFileDialog1.ShowDialog();
-
-                if (saveFileDialog1.FileName != "")
+                switch (saveFileDialog1.FilterIndex)
                 {
-                    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
+                    case 1:
+                        this.pb_qrcode.Image.Save(fs,
+                          System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
 
-                    switch (saveFileDialog1.FilterIndex)
-                    {
-                        case 1:
-                            this.pb_qrcode.Image.Save(fs,
-                              System.Drawing.Imaging.ImageFormat.Jpeg);
-                            break;
+                    case 2:
+                        this.pb_qrcode.Image.Save(fs,
+                          System.Drawing.Imaging.ImageFormat.Bmp);
+                        break;
 
-                        case 2:
-                            this.pb_qrcode.Image.Save(fs,
-                              System.Drawing.Imaging.ImageFormat.Bmp);
-                            break;
+                    case 3:
+                        this.pb_qrcode.Image.Save(fs,
+                          System.Drawing.Imaging.ImageFormat.Gif);
+                        break;
+                }
 
-                        case 3:
-                            this.pb_qrcode.Image.Save(fs,
-                              System.Drawing.Imaging.ImageFormat.Gif);
-                            break;
-                    }
-
-                    fs.Close();
-                //}
+                fs.Close();
+                
             }
-
-          /*OpenFileDialog opFile = new OpenFileDialog();
-            opFile.Title = "Save As";
-            opFile.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";*/
-
-
-            //saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-
-
-            /*Bitmap bmp = new Bitmap(pb_qrcode.Width, pb_qrcode.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            Graphics g = Graphics.FromImage(bmp);
-            g.FillRectangle(Brushes.White, 0, 0, Width, Height);
-            PictureBox pb = new PictureBox();
-            pb.Image = bmp;
-            Clipboard.SetDataObject(bmp);*/
-
-
-
-            /*Image img = new Bitmap(pb_qrcode.Width, pb_qrcode.Height);
-            Graphics g = Graphics.FromImage(img);
-            g.CopyFromScreen(PointToScreen(pb_qrcode.Location), new Point(0, 0), new Size(pb_qrcode.Width, pb_qrcode.Height));
-            Clipboard.SetImage(img);
-            g.Dispose();*/
-
-
-            /*Image img = new Bitmap(pb_qrcode.Width, pb_qrcode.Height);
-            Graphics g = Graphics.FromImage(img);
-            g.CopyFromScreen(PointToScreen(pb_qrcode.Location), new Point(0, 0), new Size(pb_qrcode.Width, pb_qrcode.Height));
-            img.Save(string.Format(@"D:\CMS\image.jpg"));
-            g.Dispose();*/
         }
-        private void RenderGraphics(Graphics g, RectangleF client)
+
+        private void tb_fielddata_KeyDown(object sender, KeyEventArgs e)
         {
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            // draw code goes here
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_generate.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                btn_clear.PerformClick();
+            }
+            else
+            {
+
+            }
+            
         }
+
     }
 }
+
+/*if (tb_fielddata.Text.Length != 0)
+{
+    if (e.Control == true && e.KeyCode == Keys.S)
+    {
+        btn_save.PerformClick();
+    }
+    else
+    {
+                        
+    }
+}
+else
+{
+    MessageBox.Show("Empty");
+}*/

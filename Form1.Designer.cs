@@ -135,6 +135,7 @@
             this.tb_fielddata.Size = new System.Drawing.Size(231, 32);
             this.tb_fielddata.TabIndex = 5;
             this.tb_fielddata.Click += new System.EventHandler(this.tb_fielddata_Click);
+            this.tb_fielddata.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_fielddata_KeyDown);
             // 
             // Barcode_Form
             // 
@@ -157,6 +158,7 @@
             this.TextAlign = System.Windows.Forms.VisualStyles.HorizontalAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Activated += new System.EventHandler(this.Barcode_Form_Activated);
             this.Load += new System.EventHandler(this.Barcode_Form_Load);
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_qrcode)).EndInit();
