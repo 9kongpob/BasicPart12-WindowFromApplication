@@ -80,6 +80,7 @@ namespace BasicPart12_WindowFormApplication
                 //pb_qrcode.Image.Save();
 
                 //pb_qrcode.Image.Save(specific_folder + "\\" + f.SafeFileName);
+
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "JPEG Image|*.jpg|PNG Image (.png)|*.png|Bitmap Image|*.bmp|Gif Image|*.gif|Tiff Image (.tiff)|*.tiff|Wmf Image (.wmf)|*.wmf";
                 saveFileDialog1.Title = "Save as";
@@ -111,9 +112,9 @@ namespace BasicPart12_WindowFormApplication
                 //}
             }
 
-            /*            OpenFileDialog opFile = new OpenFileDialog();
-                        opFile.Title = "Save As";
-                        opFile.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";*/
+          /*OpenFileDialog opFile = new OpenFileDialog();
+            opFile.Title = "Save As";
+            opFile.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";*/
 
 
             //saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
