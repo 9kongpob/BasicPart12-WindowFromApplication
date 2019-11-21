@@ -34,9 +34,9 @@
             this.btn_clear = new MetroFramework.Controls.MetroButton();
             this.btn_generate = new MetroFramework.Controls.MetroButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btn_save = new MetroFramework.Controls.MetroButton();
             this.pb_qrcode = new System.Windows.Forms.PictureBox();
             this.tb_fielddata = new MetroFramework.Controls.MetroTextBox();
-            this.btn_save = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_qrcode)).BeginInit();
             this.SuspendLayout();
@@ -49,10 +49,10 @@
             this.version.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.version.Location = new System.Drawing.Point(2, 383);
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(148, 23);
+            this.version.Size = new System.Drawing.Size(180, 23);
             this.version.Style = MetroFramework.MetroColorStyle.Black;
             this.version.TabIndex = 1;
-            this.version.Text = "version 0.0.1";
+            this.version.Text = "Version 0.0.1 by IT SIWT";
             this.version.Click += new System.EventHandler(this.metroLabel1_Click_1);
             // 
             // lb_close
@@ -107,6 +107,17 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // btn_save
+            // 
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save.Location = new System.Drawing.Point(363, 149);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(109, 52);
+            this.btn_save.TabIndex = 7;
+            this.btn_save.Text = "Save As...";
+            this.btn_save.Visible = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
             // pb_qrcode
             // 
             this.pb_qrcode.BackColor = System.Drawing.Color.White;
@@ -124,17 +135,6 @@
             this.tb_fielddata.Size = new System.Drawing.Size(231, 32);
             this.tb_fielddata.TabIndex = 5;
             this.tb_fielddata.Click += new System.EventHandler(this.tb_fielddata_Click);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_save.Location = new System.Drawing.Point(363, 149);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(109, 52);
-            this.btn_save.TabIndex = 7;
-            this.btn_save.Text = "Save As...";
-            this.btn_save.Visible = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // Barcode_Form
             // 
