@@ -34,9 +34,9 @@
             this.btn_clear = new MetroFramework.Controls.MetroButton();
             this.btn_generate = new MetroFramework.Controls.MetroButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.tb_qrcode = new System.Windows.Forms.TextBox();
             this.btn_save = new MetroFramework.Controls.MetroButton();
             this.pb_qrcode = new System.Windows.Forms.PictureBox();
-            this.tb_fielddata = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_qrcode)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,6 @@
             this.version.Style = MetroFramework.MetroColorStyle.Black;
             this.version.TabIndex = 1;
             this.version.Text = "Version 0.0.1 by IT SIWT";
-            this.version.Click += new System.EventHandler(this.metroLabel1_Click_1);
             // 
             // lb_close
             // 
@@ -73,7 +72,7 @@
             this.btn_clear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clear.Location = new System.Drawing.Point(356, 23);
             this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(44, 32);
+            this.btn_clear.Size = new System.Drawing.Size(48, 32);
             this.btn_clear.TabIndex = 3;
             this.btn_clear.Text = "Clear";
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click_1);
@@ -91,9 +90,9 @@
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.tb_qrcode);
             this.metroPanel1.Controls.Add(this.btn_save);
             this.metroPanel1.Controls.Add(this.pb_qrcode);
-            this.metroPanel1.Controls.Add(this.tb_fielddata);
             this.metroPanel1.Controls.Add(this.btn_generate);
             this.metroPanel1.Controls.Add(this.btn_clear);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -107,6 +106,15 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // tb_qrcode
+            // 
+            this.tb_qrcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.tb_qrcode.Location = new System.Drawing.Point(125, 23);
+            this.tb_qrcode.Name = "tb_qrcode";
+            this.tb_qrcode.Size = new System.Drawing.Size(231, 30);
+            this.tb_qrcode.TabIndex = 8;
+            this.tb_qrcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_qrcode_KeyDown_1);
+            // 
             // btn_save
             // 
             this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -116,7 +124,7 @@
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "Save As...";
             this.btn_save.Visible = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);           
             // 
             // pb_qrcode
             // 
@@ -127,15 +135,6 @@
             this.pb_qrcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_qrcode.TabIndex = 6;
             this.pb_qrcode.TabStop = false;
-            // 
-            // tb_fielddata
-            // 
-            this.tb_fielddata.Location = new System.Drawing.Point(126, 23);
-            this.tb_fielddata.Name = "tb_fielddata";
-            this.tb_fielddata.Size = new System.Drawing.Size(231, 32);
-            this.tb_fielddata.TabIndex = 5;
-            this.tb_fielddata.Click += new System.EventHandler(this.tb_fielddata_Click);
-            this.tb_fielddata.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_fielddata_KeyDown);
             // 
             // Barcode_Form
             // 
@@ -158,9 +157,9 @@
             this.TextAlign = System.Windows.Forms.VisualStyles.HorizontalAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Activated += new System.EventHandler(this.Barcode_Form_Activated);
             this.Load += new System.EventHandler(this.Barcode_Form_Load);
             this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_qrcode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,9 +172,9 @@
         private MetroFramework.Controls.MetroButton btn_clear;
         private MetroFramework.Controls.MetroButton btn_generate;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroTextBox tb_fielddata;
         private System.Windows.Forms.PictureBox pb_qrcode;
         private MetroFramework.Controls.MetroButton btn_save;
+        private System.Windows.Forms.TextBox tb_qrcode;
     }
 }
 

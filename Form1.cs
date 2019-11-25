@@ -20,26 +20,17 @@ namespace BasicPart12_WindowFormApplication
         }
         private void Barcode_Form_Load(object sender, EventArgs e)
         {
-
-        }
-        private void metroLabel1_Click_1(object sender, EventArgs e)
-        {
-
+            //this.ActiveControl = ;
+            this.ActiveControl = tb_qrcode;
         }
         private void metroLabel1_Click_2(object sender, EventArgs e)
         {
             this.Close();
         }
 
-
-        private void tb_fielddata_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_clear_Click_1(object sender, EventArgs e)
         {
-            tb_fielddata.Clear();
+            tb_qrcode.Clear();
 
             pb_qrcode.Image = null;
             pb_qrcode.Update();
@@ -50,15 +41,15 @@ namespace BasicPart12_WindowFormApplication
         private void btn_generate_Click_1(object sender, EventArgs e)
         {
 
-            if (tb_fielddata.Text != "")
+            if (tb_qrcode.Text != "")
             {
                 Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
-                pb_qrcode.Image = qrcode.Draw(tb_fielddata.Text, 0);
+                pb_qrcode.Image = qrcode.Draw(tb_qrcode.Text, 0);
 
                 btn_save.Visible = true;
 
-                tb_fielddata.Select();
-                tb_fielddata.Focus();
+                tb_qrcode.Select();
+                tb_qrcode.Focus();
             }
             else
             {
@@ -104,38 +95,28 @@ namespace BasicPart12_WindowFormApplication
             }
         }
 
-        private void tb_fielddata_KeyDown(object sender, KeyEventArgs e)
+        private void tb_qrcode_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 btn_generate.PerformClick();
+                
+
             }
-            else if(e.KeyCode == Keys.Escape)
+            else if (e.KeyCode == Keys.Escape)
             {
                 btn_clear.PerformClick();
             }
+            else if (btn_save.Visible == true && e.Control == true && e.KeyCode == Keys.S)
+            {
+                btn_save.PerformClick();
+            }
             else
             {
-
+                
             }
-            
+
         }
-
     }
 }
 
-/*if (tb_fielddata.Text.Length != 0)
-{
-    if (e.Control == true && e.KeyCode == Keys.S)
-    {
-        btn_save.PerformClick();
-    }
-    else
-    {
-                        
-    }
-}
-else
-{
-    MessageBox.Show("Empty");
-}*/
