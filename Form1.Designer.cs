@@ -110,6 +110,7 @@
             // 
             this.tb_qrcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tb_qrcode.Location = new System.Drawing.Point(125, 23);
+            this.tb_qrcode.MaxLength = 100;
             this.tb_qrcode.Name = "tb_qrcode";
             this.tb_qrcode.Size = new System.Drawing.Size(231, 30);
             this.tb_qrcode.TabIndex = 8;
@@ -124,7 +125,7 @@
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "Save As...";
             this.btn_save.Visible = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);           
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // pb_qrcode
             // 

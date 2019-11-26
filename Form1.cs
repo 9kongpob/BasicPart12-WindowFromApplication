@@ -9,6 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Develop QR Code Generate Program.
+//Version 0.0.1 by IT SIWT
+//Write Coding By Mr.Kongpob Kunchanuan IT Engineer
+//
+//Version 0.0.1 Detail :
+//-Can enter data to create QR Code.
+//-Which can enter a maximum of 100 characters.
+//-Key Code Shorts cut.
+// -Enter for generate QR Code.
+// -Esc for clear data in textbox.
+// -Ctrl + S for save image QR Code when QR Code generated.
+
 namespace BasicPart12_WindowFormApplication
 {
 
@@ -44,7 +56,7 @@ namespace BasicPart12_WindowFormApplication
             if (tb_qrcode.Text != "")
             {
                 Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
-                pb_qrcode.Image = qrcode.Draw(tb_qrcode.Text, 0);
+                pb_qrcode.Image = qrcode.Draw(tb_qrcode.Text, 0); // 123
 
                 btn_save.Visible = true;
 
